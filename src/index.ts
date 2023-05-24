@@ -1,5 +1,5 @@
+/* eslint-disable max-params */
 /* eslint-disable max-nested-callbacks */
-import SIP from 'sip.js';
 import $ from 'jquery';
 import { SDK } from '@ringcentral/sdk';
 import WebPhone from 'ringcentral-web-phone';
@@ -7,9 +7,6 @@ import WebPhone from 'ringcentral-web-phone';
 import 'bootstrap/dist/css/bootstrap.min.css';
 global.jQuery = $;
 import('bootstrap');
-// import 'bootstrap';
-
-global.SIP = SIP;
 
 $(() => {
   /** @type {SDK} */
@@ -43,7 +40,6 @@ $(() => {
     return $($tpl.html());
   }
 
-  // eslint-disable-next-line max-params
   function login(server, clientId, clientSecret, _username, _extension, password, ll) {
     sdk = new SDK({
       clientId,
@@ -55,7 +51,6 @@ $(() => {
 
     username = _username;
     extensionNumber = _extension;
-    // TODO: Improve later to support international phone number country codes better
     if (username) {
       username = username.match(/^[+1]/) ? username : '1' + username;
       username = username.replace(/\W/g, '');
@@ -76,7 +71,6 @@ $(() => {
   }
 
   // Redirect function
-  // eslint-disable-next-line max-params
   function show3LeggedLogin(server, clientId, clientSecret, ll) {
     const $redirectUri = decodeURIComponent(window.location.href.split('login', 1) + 'callback.html');
 
@@ -104,7 +98,6 @@ $(() => {
       });
   }
 
-  // eslint-disable-next-line max-params
   function postLogin(server, clientId, clientSecret, _username, ext, password, ll) {
     logLevel = ll;
 
@@ -158,10 +151,6 @@ $(() => {
       },
       enableQos: true,
       enableMediaReportLogging: true,
-      // enableTurnServers: true or false,
-      // turnServers: [{urls:'turn:192.168.0.1', username : 'turn' , credential: 'turn'}],
-      // iceTransportPolicy: "all" or "relay",
-      // iceCheckingTimeout:500
     });
     global.webPhone = webPhone; // for debugging
 
