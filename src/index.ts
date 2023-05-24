@@ -3,6 +3,8 @@
 import $ from 'jquery';
 import { SDK } from '@ringcentral/sdk';
 import WebPhone from 'ringcentral-web-phone';
+import incomingAudio from 'url:./audio/incoming.ogg';
+import outgoingAudio from 'url:./audio/outgoing.ogg';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 global.jQuery = $;
@@ -139,8 +141,8 @@ $(() => {
       clientId: localStorage.getItem('webPhoneclientId'),
       audioHelper: {
         enabled: true,
-        incoming: 'audio/incoming.ogg',
-        outgoing: 'audio/outgoing.ogg',
+        incoming: incomingAudio,
+        outgoing: outgoingAudio,
       },
       logLevel,
       appName: 'WebPhoneDemo',
